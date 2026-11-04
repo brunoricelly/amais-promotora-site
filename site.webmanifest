@@ -1,0 +1,13 @@
+{
+  "name": "A+ Promotora",
+  "short_name": "A+ Promotora",
+  "description": "Crédito A+ para você. Atendimento em crédito consignado e antecipação do FGTS.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#061a3a",
+  "theme_color": "#061a3a",
+  "icons": [
+    {"src": "/assets/brand/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "/assets/brand/icon-512.png", "sizes": "512x512", "type": "image/png"}
+  ]
+}
