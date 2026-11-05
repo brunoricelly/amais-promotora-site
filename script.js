@@ -22,11 +22,30 @@
   }));
 
   document.addEventListener('click', event => {
-    if (menu?.classList.contains('open') && !menu.contains(event.target) && !menuButton.contains(event.target)) {
+    if (menu?.classList.contains('open') && menuButton && !menu.contains(event.target) && !menuButton.contains(event.target)) {
       menu.classList.remove('open');
       menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Abrir menu');
     }
   });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menu?.classList.contains('open')) {
+      menu.classList.remove('open');
+      menuButton?.setAttribute('aria-expanded', 'false');
+      menuButton?.setAttribute('aria-label', 'Abrir menu');
+      menuButton?.focus();
+    }
+  });
+
+  const desktopMenu = window.matchMedia('(min-width: 981px)');
+  const closeMenuOnDesktop = event => {
+    if (!event.matches) return;
+    menu?.classList.remove('open');
+    menuButton?.setAttribute('aria-expanded', 'false');
+    menuButton?.setAttribute('aria-label', 'Abrir menu');
+  };
+  desktopMenu.addEventListener?.('change', closeMenuOnDesktop);
 
   const revealItems = document.querySelectorAll('.reveal');
   if (reduceMotion || !('IntersectionObserver' in window)) {
